@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Intelligence Boutique - Gianmarco Felicioni</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+        }
+        
+        /* Title Slide */
+        .title-slide {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a1a2a 100%);
+        }
+        
+        .title-content {
+            text-align: center;
+        }
+        
+        .company-name {
+            font-size: 5rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .tagline {
+            font-size: 2.5rem;
+            color: #0066ff;
+            font-weight: 500;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #999;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+        
+        .founder-info {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease-out 0.6s;
+            animation-fill-mode: both;
+        }
+        
+        .founder-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .founder-title {
+            color: #999;
+            font-size: 1rem;
+        }
+        
+        /* Problem Slide */
+        .problem-slide {
+            background: #0f0f0f;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 60px;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .highlight {
+            color: #0066ff;
+            font-weight: 500;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .problem-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 102, 255, 0.3);
+        }
+        
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0066ff 0%, #0099ff 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .problem-desc {
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        /* Solution Slide */
+        .solution-slide {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a0f1a 100%);
+        }
+        
+        .solution-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .solution-subtitle {
+            font-size: 1.3rem;
+            color: #999;
+            margin-top: 20px;
+        }
+        
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 102, 255, 0.05);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: scale(1.05);
+            background: rgba(0, 102, 255, 0.1);
+        }
+        
+        .value-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #0066ff 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .value-label {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        
+        /* Services Slide */
+        .services-slide {
+            background: #0f0f0f;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .service-tier {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .service-tier.featured {
+            background: rgba(0, 102, 255, 0.05);
+            border-color: rgba(0, 102, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .service-tier:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 102, 255, 0.5);
+        }
+        
+        .service-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .service-price {
+            font-size: 2.5rem;
+            color: #0066ff;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .service-period {
+            font-size: 1rem;
+            color: #999;
+            margin-bottom: 30px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .service-features li {
+            padding: 12px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: #0066ff;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* Process Slide */
+        .process-slide {
+            background: linear-gradient(135deg, #0f0f0f 0%, #0a0a1a 100%);
+        }
+        
+        .process-timeline {
+            position: relative;
+            margin-top: 60px;
+        }
+        
+        .process-line {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0066ff 0%, #0099ff 100%);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #0f0f0f;
+            border: 3px solid #0066ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .step-desc {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Tech Stack Slide */
+        .tech-slide {
+            background: #0a0a0a;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .tech-category {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .tech-category-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #0066ff;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tech-category-title::before {
+            content: '⚡';
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .tech-badge {
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: rgba(0, 102, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Target Slide */
+        .target-slide {
+            background: linear-gradient(135deg, #0f0f0f 0%, #0a0f1a 100%);
+        }
+        
+        .target-segments {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .segment-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #0066ff;
+            padding: 40px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .segment-card:hover {
+            transform: translateX(10px);
+            background: rgba(0, 102, 255, 0.05);
+        }
+        
+        .segment-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .segment-percentage {
+            display: inline-block;
+            background: #0066ff;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .segment-criteria {
+            list-style: none;
+            color: #ccc;
+            line-height: 2;
+        }
+        
+        .segment-criteria li::before {
+            content: '→';
+            color: #0066ff;
+            margin-right: 10px;
+        }
+        
+        /* CTA Slide */
+        .cta-slide {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a0a1a 100%);
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .cta-subtitle {
+            font-size: 1.5rem;
+            color: #999;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0066ff 0%, #0099ff 100%);
+            color: white;
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.5);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 3rem;
+            }
+            
+            .tagline {
+                font-size: 1.8rem;
+            }
+            
+            .problem-grid,
+            .tech-grid,
+            .target-segments {
+                grid-template-columns: 1fr;
+            }
+            
+            .value-props,
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <section class="slide title-slide">
+        <div class="container">
+            <div class="title-content">
+                <h1 class="company-name">Finance Intelligence</h1>
+                <p class="tagline">Il CFO che la tua azienda merita</p>
+                <p class="subtitle">
+                    Reportistica professionale e consulenza strategica<br>
+                    con tecnologia AI-driven per PMI in crescita
+                </p>
+                <div class="founder-info">
+                    <div class="founder-name">Gianmarco Felicioni</div>
+                    <div class="founder-title">Ex-KPMG | Ex-CFO Musixmatch (TPG) | 10+ anni di esperienza</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Il Problema -->
+    <section class="slide problem-slide">
+        <div class="container">
+            <h2 class="section-title">Il <span class="highlight">Problema</span></h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">💰</div>
+                    <h3 class="problem-title">Costo proibitivo del CFO</h3>
+                    <p class="problem-desc">Un CFO senior costa 150-200k€/anno, insostenibile per PMI sotto i 50M€ di fatturato</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📊</div>
+                    <h3 class="problem-title">Reporting inadeguato</h3>
+                    <p class="problem-desc">Il 73% delle PMI italiane non ha reportistica mensile strutturata per decisioni data-driven</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🎯</div>
+                    <h3 class="problem-title">Perdita di opportunità</h3>
+                    <p class="problem-desc">Senza KPI e forecast, le aziende perdono il 15-20% di marginalità potenziale</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🚀</div>
+                    <h3 class="problem-title">Barriera alla crescita</h3>
+                    <p class="problem-desc">Impossibile attrarre investitori o fare M&A senza financial reporting professionale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: La Soluzione -->
+    <section class="slide solution-slide">
+        <div class="container">
+            <div class="solution-header">
+                <h2 class="section-title">La <span class="highlight">Soluzione</span></h2>
+                <p class="solution-subtitle">CFO as a Service + AI = Reportistica di livello enterprise a costo PMI</p>
+            </div>
+            <div class="value-props">
+                <div class="value-card">
+                    <div class="value-number">80%</div>
+                    <div class="value-label">Risparmio vs CFO full-time</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-number">24h</div>
+                    <div class="value-label">Da dati a insights</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-number">10x</div>
+                    <div class="value-label">ROI medio in 12 mesi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Servizi -->
+    <section class="slide services-slide">
+        <div class="container">
+            <h2 class="section-title">I <span class="highlight">Servizi</span></h2>
+            <div class="services-container">
+                <div class="service-tier">
+                    <h3 class="service-name">Essential</h3>
+                    <div class="service-price">€1.500</div>
+                    <div class="service-period">al mese</div>
+                    <ul class="service-features">
+                        <li>Reportistica mensile automatizzata</li>
+                        <li>Dashboard KPI sempre aggiornata</li>
+                        <li>Call mensile di review (1h)</li>
+                        <li>Alert su scostamenti critici</li>
+                        <li>2h consulenza incluse</li>
+                    </ul>
+                </div>
+                <div class="service-tier featured">
+                    <h3 class="service-name">Professional</h3>
+                    <div class="service-price">€3.000</div>
+                    <div class="service-period">al mese</div>
+                    <ul class="service-features">
+                        <li>Tutto Essential +</li>
+                        <li>Analisi predittive con AI</li>
+                        <li>Budget & Forecast rolling</li>
+                        <li>Board pack trimestrale</li>
+                        <li>Benchmark di settore</li>
+                        <li>5h consulenza incluse</li>
+                    </ul>
+                </div>
+                <div class="service-tier">
+                    <h3 class="service-name">CFO Service</h3>
+                    <div class="service-price">€5.000</div>
+                    <div class="service-period">al mese</div>
+                    <ul class="service-features">
+                        <li>Tutto Professional +</li>
+                        <li>Partecipazione CdA</li>
+                        <li>Supporto fundraising</li>
+                        <li>Due diligence ready</li>
+                        <li>Team finance coaching</li>
+                        <li>Consulenza illimitata</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Come Funziona -->
+    <section class="slide process-slide">
+        <div class="container">
+            <h2 class="section-title">Come <span class="highlight">Funziona</span></h2>
+            <div class="process-timeline">
+                <div class="process-line"></div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Setup Iniziale</h3>
+                        <p class="step-desc">Mappatura processi e configurazione sistema in 2 settimane</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Automazione</h3>
+                        <p class="step-desc">Integrazione dati e creazione dashboard real-time</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">AI Analysis</h3>
+                        <p class="step-desc">Machine learning per insights e anomaly detection</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Delivery</h3>
+                        <p class="step-desc">Report mensili e sessioni strategiche con C-suite</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Tech Stack -->
+    <section class="slide tech-slide">
+        <div class="container">
+            <h2 class="section-title">Il nostro <span class="highlight">Tech Stack</span></h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Data Processing</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">Apache Spark</span>
+                        <span class="tech-badge">ETL Pipelines</span>
+                        <span class="tech-badge">API Integration</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">AI & Analytics</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">GPT-4</span>
+                        <span class="tech-badge">Machine Learning</span>
+                        <span class="tech-badge">Predictive Models</span>
+                        <span class="tech-badge">NLP Analysis</span>
+                        <span class="tech-badge">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Visualization</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">Power BI</span>
+                        <span class="tech-badge">Tableau</span>
+                        <span class="tech-badge">Custom Dashboards</span>
+                        <span class="tech-badge">Real-time Monitoring</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Integration</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">SAP</span>
+                        <span class="tech-badge">Oracle</span>
+                        <span class="tech-badge">Salesforce</span>
+                        <span class="tech-badge">QuickBooks</span>
+                        <span class="tech-badge">Excel/Google Sheets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Target Market -->
+    <section class="slide target-slide">
+        <div class="container">
+            <h2 class="section-title">Il nostro <span class="highlight">Target</span></h2>
+            <div class="target-segments">
+                <div class="segment-card">
+                    <h3 class="segment-title">Scale-up Tech</h3>
+                    <span class="segment-percentage">40%</span>
+                    <ul class="segment-criteria">
+                        <li>Serie A/B in corso o pianificata</li>
+                        <li>5-50M€ di fatturato</li>
+                        <li>Crescita >50% YoY</li>
+                        <li>Necessità di investor reporting</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <h3 class="segment-title">PMI in Transizione</h3>
+                    <span class="segment-percentage">30%</span>
+                    <ul class="segment-criteria">
+                        <li>Passaggio generazionale</li>
+                        <li>10-100M€ di fatturato</li>
+                        <li>Digitalizzazione in corso</li>
+                        <li>Espansione internazionale</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <h3 class="segment-title">PE Portfolio Companies</h3>
+                    <span class="segment-percentage">20%</span>
+                    <ul class="segment-criteria">
+                        <li>Post-acquisizione</li>
+                        <li>Need for professionalization</li>
+                        <li>100-days plan execution</li>
+                        <li>Exit preparation</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <h3 class="segment-title">Corporate Carve-outs</h3>
+                    <span class="segment-percentage">10%</span>
+                    <ul class="segment-criteria">
+                        <li>Spin-off da multinazionali</li>
+                        <li>Standalone reporting setup</li>
+                        <li>TSA exit planning</li>
+                        <li>Finance function build</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Call to Action -->
+    <section class="slide cta-slide">
+        <div class="container">
+            <h2 class="cta-title">Trasforma i tuoi <span class="highlight">dati</span> in <span class="highlight">decisioni</span></h2>
+            <p class="cta-subtitle">
+                Scopri come possiamo portare la tua reportistica finanziaria<br>
+                al livello delle migliori aziende Fortune 500
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <span>gianmarco.felicioni@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <span>+39 349 47 18 597</span>
+                </div>
+            </div>
+            <a href="mailto:gianmarco.felicioni@gmail.com" class="cta-button">Prenota una Call Strategica Gratuita</a>
+        </div>
+    </section>
+</body>
+</html>
