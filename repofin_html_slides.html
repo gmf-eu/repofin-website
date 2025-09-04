@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repofin - Financial Management - Gianmarco Felicioni</title>
+    <link rel="icon" href="favicon.png" type="image/png">
     <style>
         /* --- Base & Typography --- */
         * {
@@ -137,7 +138,7 @@
             overflow: hidden;
         }
 
-        #challenges, #areas, #clients, #about-us {
+        #challenges, #areas, #clients {
             background-color: #121212;
         }
 
@@ -458,6 +459,113 @@
 
         .client-desc {
             color: #999;
+        }
+
+        /* --- Section for Professionals --- */
+        .professional-box {
+            background: rgba(0, 102, 255, 0.05);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 60px;
+        }
+
+        .professional-box:hover {
+            background: rgba(0, 102, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .professional-box-header {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .professional-box-header h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .professional-box-header .arrow {
+            font-size: 2rem;
+            color: #0066ff;
+            transition: transform 0.4s ease;
+        }
+
+        .professional-box.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .professional-box-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 40px;
+        }
+
+        .professional-box.open .professional-box-content {
+            max-height: 500px; /* Adjust as needed */
+            padding: 0 40px 40px;
+            border-top: 1px solid rgba(0, 102, 255, 0.2);
+        }
+
+        .professional-box-content .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .professional-box-content h4 {
+            font-size: 1.3rem;
+            color: #0066ff;
+            margin-bottom: 15px;
+        }
+
+        .professional-box-content p {
+            color: #ccc;
+        }
+
+        .professional-box-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .professional-box-content ul li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            color: #ccc;
+        }
+
+        .professional-box-content ul li::before {
+            content: '✓';
+            color: #0066ff;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        body.light-mode .professional-box {
+            background: #fff;
+            border-color: rgba(0, 102, 255, 0.3);
+        }
+        body.light-mode .professional-box:hover {
+            background: #f5faff;
+        }
+        body.light-mode .professional-box-content p,
+        body.light-mode .professional-box-content ul li {
+            color: #666;
+        }
+        body.light-mode .professional-box.open .professional-box-content {
+            border-top-color: rgba(0, 102, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .professional-box-header h3 { font-size: 1.4rem; }
+            .professional-box-content .content-grid { grid-template-columns: 1fr; }
         }
 
         .tech-category {
@@ -927,6 +1035,31 @@
                     <p class="client-desc" data-key="client3Desc"></p>
                 </div>
             </div>
+
+            <div class="professional-box">
+                <div class="professional-box-header">
+                    <h3 data-key="profHeader"></h3>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="professional-box-content">
+                    <div class="content-grid">
+                        <div class="content-col">
+                            <h4 data-key="profCol1Title"></h4>
+                            <p data-key="profCol1Desc"></p>
+                        </div>
+                        <div class="content-col">
+                            <h4 data-key="profCol2Title"></h4>
+                            <p data-key="profCol2Desc"></p>
+                            <ul>
+                                <li data-key="profCol2Li1"></li>
+                                <li data-key="profCol2Li2"></li>
+                                <li data-key="profCol2Li3"></li>
+                                <li data-key="profCol2Li4"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1054,6 +1187,15 @@
                 client2Desc: "If your SME is undergoing a generational change or a transformation, we help you modernize financial management. We turn data into strategic decisions, creating a robust financial system suitable for international expansion and digitalization.",
                 client3Title: "Private Equity Portfolio Companies",
                 client3Desc: "For companies acquired by private equity funds, we offer the necessary support for a fast and effective professionalization process. We help you implement enterprise-level financial reporting and prepare the company for the exit strategy.",
+                profHeader: "Are you a Chartered Accountant and/or Statutory Auditor? <span class='highlight'>We can help you too.</span>",
+                profCol1Title: "Support for Your Clients",
+                profCol1Desc: "Expand the range of services you offer. You can provide your clients with advanced reporting, financial analysis, and business intelligence solutions, increasing your firm's perceived value and creating new business opportunities.",
+                profCol2Title: "Direct Support for Your Firm",
+                profCol2Desc: "We assist you in your activities to manage peak workloads or complex projects. Our support includes:",
+                profCol2Li1: "Drafting of technical reports (e.g., for mergers).",
+                profCol2Li2: "Operational and coordination support for the board of statutory auditors.",
+                profCol2Li3: "Assistance in statutory audit activities.",
+                profCol2Li4: "Coordination and management of internal teams on specific projects.",
                 aboutTitle: "About Us",
                 aboutName: "Gianmarco Felicioni",
                 aboutJobTitle: "Professional with over 10 years of experience in Big4 and as a CFO serving investment funds and entrepreneurs.",
@@ -1131,6 +1273,15 @@
                 client2Desc: "Se la tua PMI sta vivendo un passaggio generazionale o una trasformazione, ti aiutiamo a modernizzare la gestione finanziaria. Trasformiamo i dati in decisioni strategiche, creando un sistema finanziario robusto, adatto all'espansione internazionale e alla digitalizzazione.",
                 client3Title: "Aziende in portafoglio di fondi di Private Equity",
                 client3Desc: "Per le società acquisite da fondi di private equity, offriamo il supporto necessario per un processo di professionalizzazione veloce e efficace. Ti aiutiamo a implementare un financial reporting di livello enterprise e a preparare la società per la strategia di exit.",
+                profHeader: "Sei un Dottore Commercialista e/o Revisore Legale? <span class='highlight'>Possiamo aiutare anche te.</span>",
+                profCol1Title: "Supporto per i tuoi clienti",
+                profCol1Desc: "Amplia la gamma di servizi che offri. Puoi proporre ai tuoi clienti soluzioni di reporting avanzato, analisi finanziaria e business intelligence, aumentando il valore percepito del tuo studio e creando nuove opportunità di business.",
+                profCol2Title: "Supporto diretto al tuo studio",
+                profCol2Desc: "Ti affianchiamo nelle tue attività per gestire picchi di lavoro o progetti complessi. Il nostro supporto include:",
+                profCol2Li1: "Redazione di relazioni tecniche (es. art. 2501-bis c.c. per fusioni).",
+                profCol2Li2: "Supporto operativo e di coordinamento per il collegio sindacale.",
+                profCol2Li3: "Affiancamento nelle attività di revisione legale.",
+                profCol2Li4: "Coordinamento e gestione di team interni su progetti specifici.",
                 aboutTitle: "Chi Siamo",
                 aboutName: "Gianmarco Felicioni",
                 aboutJobTitle: "Professionista con oltre 10 anni di esperienza in Big4 e come CFO a servizio di fondi d'investimento ed imprenditori.",
@@ -1238,6 +1389,14 @@
             animatedElements.forEach(el => {
                 observer.observe(el);
             });
+
+            // --- Accordion for Professionals Section --- //
+            const professionalBox = document.querySelector('.professional-box');
+            if (professionalBox) {
+                professionalBox.addEventListener('click', () => {
+                    professionalBox.classList.toggle('open');
+                });
+            }
 
             // --- Set Initial Language --- //
             const savedLang = localStorage.getItem('language') || 'it';
