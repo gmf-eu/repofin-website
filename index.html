@@ -5,836 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repofin - Financial Management - Gianmarco Felicioni</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    <style>
-        /* --- Base & Typography --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 90%;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 60px;
-            font-weight: 300;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #999;
-            text-align: center;
-            max-width: 800px;
-            margin: -40px auto 50px;
-        }
-
-        .highlight {
-            color: #0066ff;
-            font-weight: 500;
-        }
-
-        /* --- Header & Navigation --- */
-        .main-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 0;
-        }
-
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .main-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        .main-nav a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .main-nav a:hover {
-            color: #0066ff;
-        }
-        
-        .lang-switcher {
-            margin-left: 20px;
-        }
-
-        .lang-switcher a {
-            color: #999;
-            text-decoration: none;
-            font-weight: 500;
-            margin: 0 5px;
-            font-size: 0.9rem;
-            padding: 5px;
-        }
-
-        .lang-switcher a.active {
-            color: #0066ff;
-            font-weight: 700;
-        }
-
-        .nav-cta-button {
-            display: inline-block;
-            background: #0066ff;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta-button:hover {
-            background: #0052cc;
-            transform: translateY(-2px);
-        }
-
-        /* --- Sections --- */
-        .content-section, .hero-section, .cta-section {
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #challenges, #areas, #clients {
-            background-color: #121212;
-        }
-
-        .hero-section {
-            padding: 120px 0;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 400;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.8rem;
-            color: #0066ff;
-            font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        .hero-intro {
-            font-size: 1.2rem;
-            color: #999;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-
-        .hero-cta-button {
-            display: inline-block;
-            background: rgba(0, 102, 255, 0.1);
-            border: 2px solid #0066ff;
-            color: #0066ff;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .hero-cta-button:hover {
-            background: #0066ff;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
-        }
-
-        /* Re-using existing component styles */
-        .problem-list {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .problem-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            padding: 40px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .problem-item:last-child {
-            border-bottom: none;
-        }
-
-        .problem-item:hover {
-            background-color: rgba(255, 255, 255, 0.03);
-        }
-        
-        .problem-icon {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #0066ff 0%, #0099ff 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-top: 5px;
-        }
-        
-        .problem-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-        
-        .problem-desc {
-            color: #999;
-        }
-
-        .solution-subtitle {
-            font-size: 1.2rem;
-            color: #999;
-            text-align: center;
-            max-width: 800px;
-            margin: -40px auto 50px;
-        }
-
-        .intervention-list {
-            max-width: 900px;
-            margin: 60px auto 0;
-        }
-
-        .intervention-item {
-            padding: 25px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .intervention-item:first-child {
-            padding-top: 0;
-        }
-
-        .intervention-item:last-child {
-            border-bottom: none;
-        }
-
-        .intervention-item h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #0066ff;
-            margin-bottom: 10px;
-        }
-
-        .intervention-item p {
-            color: #999;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .value-card {
-            text-align: center;
-            padding: 30px;
-            background: rgba(0, 102, 255, 0.05);
-            border: 1px solid rgba(0, 102, 255, 0.2);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover {
-            transform: scale(1.05);
-            background: rgba(0, 102, 255, 0.1);
-        }
-        
-        .value-number {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #0066ff 0%, #0099ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-        
-        .value-label {
-            font-size: 1.1rem;
-            color: #ccc;
-        }
-
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-tier {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .service-tier.featured {
-            background: rgba(0, 102, 255, 0.05);
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-        
-        .service-tier:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 102, 255, 0.5);
-        }
-        
-        .service-name, .service-subtitle, .service-features {
-            text-align: center;
-        }
-
-        .service-name {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .service-subtitle {
-            font-size: 1rem;
-            color: #0066ff;
-            font-weight: 500;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .service-features {
-            list-style: none;
-            margin-top: 30px;
-            text-align: left;
-        }
-        
-        .service-features li {
-            padding: 12px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #ccc;
-            display: flex;
-            align-items: center;
-        }
-        
-        .service-features li::before {
-            content: '✓';
-            color: #0066ff;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .process-timeline {
-            position: relative;
-            margin-top: 60px;
-        }
-        
-        .process-line {
-            position: absolute;
-            top: 30px;
-            left: 12.5%;
-            right: 12.5%;
-            height: 2px;
-            background: linear-gradient(90deg, #0066ff 0%, #0099ff 100%);
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            position: relative;
-        }
-        
-        .process-step, .tech-category, .segment-card {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .process-step.is-visible, .tech-category.is-visible, .segment-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: #0f0f0f;
-            border: 3px solid #0066ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .step-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-        
-        .step-desc {
-            color: #999;
-            font-size: 0.95rem;
-        }
-
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .client-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-        }
-
-        .client-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-
-        .client-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-weight: 500;
-            color: #0066ff;
-        }
-
-        .client-desc {
-            color: #999;
-        }
-
-        /* --- Section for Professionals --- */
-        .professional-box {
-            background: rgba(0, 102, 255, 0.05);
-            border: 1px solid rgba(0, 102, 255, 0.2);
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 60px;
-        }
-
-        .professional-box:hover {
-            background: rgba(0, 102, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .professional-box-header {
-            padding: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .professional-box-header h3 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin: 0;
-        }
-
-        .professional-box-header .arrow {
-            font-size: 2rem;
-            color: #0066ff;
-            transition: transform 0.4s ease;
-        }
-
-        .professional-box.open .arrow {
-            transform: rotate(180deg);
-        }
-
-        .professional-box-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-            padding: 0 40px;
-        }
-
-        .professional-box.open .professional-box-content {
-            max-height: 500px; /* Adjust as needed */
-            padding: 0 40px 40px;
-            border-top: 1px solid rgba(0, 102, 255, 0.2);
-        }
-
-        .professional-box-content .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        .professional-box-content h4 {
-            font-size: 1.3rem;
-            color: #0066ff;
-            margin-bottom: 15px;
-        }
-
-        .professional-box-content p {
-            color: #ccc;
-        }
-
-        .professional-box-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .professional-box-content ul li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            color: #ccc;
-        }
-
-        .professional-box-content ul li::before {
-            content: '✓';
-            color: #0066ff;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        body.light-mode .professional-box {
-            background: #fff;
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-        body.light-mode .professional-box:hover {
-            background: #f5faff;
-        }
-        body.light-mode .professional-box-content p,
-        body.light-mode .professional-box-content ul li {
-            color: #666;
-        }
-        body.light-mode .professional-box.open .professional-box-content {
-            border-top-color: rgba(0, 102, 255, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .professional-box-header h3 { font-size: 1.4rem; }
-            .professional-box-content .content-grid { grid-template-columns: 1fr; }
-        }
-
-        .tech-category {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-        }
-        
-        .tech-category-title {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #0066ff;
-            display: flex;
-            align-items: center;
-        }
-        
-        .tech-category-title::before {
-            content: '⚡';
-            margin-right: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .tech-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .tech-badge {
-            background: rgba(0, 102, 255, 0.1);
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-        
-        .tech-badge:hover {
-            background: rgba(0, 102, 255, 0.2);
-            transform: scale(1.1);
-        }
-
-        .about-us-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .founder-bio {
-            flex: 2;
-        }
-
-        .founder-name {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .founder-title {
-            color: #999;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .mission-statement {
-            color: #ccc;
-            font-style: italic;
-        }
-
-        .headshot {
-            flex: 1;
-            max-width: 300px;
-        }
-
-        .headshot img {
-            width: 100%;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* --- CTA & Footer --- */
-        .cta-section {
-            background: linear-gradient(135deg, #0a0a1a 0%, #0a0a0a 100%);
-            text-align: center;
-        }
-
-        .cta-title {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-        
-        .cta-subtitle {
-            font-size: 1.3rem;
-            color: #999;
-            margin-bottom: 50px;
-            line-height: 1.6;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            font-size: 1.2rem;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 102, 255, 0.1);
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #0066ff 0%, #0099ff 100%);
-            color: white;
-            padding: 20px 60px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.5);
-        }
-
-        .main-footer {
-            background: #050505;
-            padding: 50px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #999;
-        }
-
-        .main-footer .container {
-            text-align: center;
-        }
-
-        .footer-copyright {
-            font-size: 0.9rem;
-        }
-
-        /* --- Utilities & Animations --- */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 102, 255, 0.1);
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0066ff;
-            font-size: 24px;
-            text-decoration: none;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-to-top::before {
-            content: '↑';
-        }
-
-        .theme-switch-wrapper {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            z-index: 1001;
-        }
-
-        /* (Theme switch styles remain largely the same) */
-        .theme-switch { position: relative; display: inline-block; width: 60px; height: 34px; }
-        .theme-switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; }
-        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; }
-        input:checked + .slider { background-color: #0066ff; }
-        input:focus + .slider { box-shadow: 0 0 1px #0066ff; }
-        input:checked + .slider:before { transform: translateX(26px); }
-        .slider.round { border-radius: 34px; }
-        .slider.round:before { border-radius: 50%; }
-
-        /* --- Light Mode --- */
-        body.light-mode {
-            background: #f0f2f5;
-            color: #333;
-        }
-        body.light-mode .main-header { background: rgba(240, 242, 245, 0.85); border-bottom-color: rgba(0, 0, 0, 0.1); }
-        body.light-mode .logo { color: #333; }
-        body.light-mode .main-nav a { color: #555; }
-        body.light-mode .main-nav a:hover, body.light-mode .lang-switcher a.active { color: #0066ff; }
-        body.light-mode .lang-switcher a { color: #555; }
-        body.light-mode .hero-title { color: #000; }
-        body.light-mode .section-subtitle, body.light-mode .hero-intro, body.light-mode .problem-desc, body.light-mode .solution-subtitle, body.light-mode .step-desc, body.light-mode .cta-subtitle, body.light-mode .founder-title, body.light-mode .mission-statement { color: #666; }
-        body.light-mode .problem-item { border-bottom-color: rgba(0, 0, 0, 0.1); }
-        body.light-mode .problem-item:hover { background-color: rgba(0, 0, 0, 0.02); }
-        body.light-mode .intervention-item { border-bottom-color: rgba(0, 0, 0, 0.1); }
-        body.light-mode .intervention-item p { color: #666; }
-        body.light-mode .client-card { background: #fff; border-color: rgba(0, 0, 0, 0.1); }
-        body.light-mode .client-desc { color: #666; }
-        body.light-mode .service-tier, body.light-mode .tech-category, body.light-mode .segment-card { background: #fff; border-color: rgba(0, 0, 0, 0.1); }
-        body.light-mode .value-card { background: #fff; border-color: rgba(0, 102, 255, 0.2); }
-        body.light-mode .value-label { color: #333; }
-        body.light-mode .service-tier.featured { background: #fff; border-color: rgba(0, 102, 255, 0.5); }
-        body.light-mode .service-features li { border-top-color: rgba(0, 0, 0, 0.05); color: #666; }
-        body.light-mode .step-number { background: #f0f2f5; }
-        body.light-mode .headshot img { border-color: rgba(0, 0, 0, 0.1); }
-        
-        body.light-mode .main-footer {
-            background: #FFFFFF;
-            color: #333;
-            border-top-color: rgba(0, 0, 0, 0.1);
-        }
-
-        body.light-mode #challenges, 
-        body.light-mode #areas, 
-        body.light-mode #clients,
-        body.light-mode #contact {
-            background: #FFFFFF;
-        }
-        body.light-mode #services,
-        body.light-mode #how-it-works,
-        body.light-mode #about-us {
-            background: #F5F7FA;
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .main-header .container { flex-direction: column; gap: 15px; }
-            .main-nav ul { gap: 20px; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.3rem; }
-            .section-title { font-size: 2.2rem; }
-            .process-steps { grid-template-columns: 1fr; gap: 40px; }
-            .areas-grid { grid-template-columns: 1fr; }
-            .clients-grid { grid-template-columns: 1fr; }
-            .process-line { display: none; }
-            .about-us-content { flex-direction: column; }
-            .headshot-placeholder { width: 100%; height: 250px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -853,7 +24,7 @@
             <div class="lang-switcher">
                 <a href="#" id="lang-it">ITA</a> / <a href="#" id="lang-en">ENG</a>
             </div>
-            <a href="https://calendly.com/repofin-meeting" class="nav-cta-button" data-key="navCtaButton"></a>
+            <a href="https://calendar.repofin.it/" target="_blank" rel="noopener noreferrer" class="nav-cta-button" data-key="navCtaButton"></a>
         </div>
     </header>
 
@@ -912,11 +83,12 @@
         <div class="container">
             <h2 class="section-title" data-key="servicesTitle"></h2>
             <p class="solution-subtitle" data-key="servicesSubtitle"></p>
+            <p class="customization-note" data-key="servicesCustomNote"></p>
             
             <div class="services-container">
                 <div class="service-tier featured">
-                    <h3 class="service-name">Reportistica Base</h3>
-                    <p class="service-subtitle">Essential</p>
+                    <h3 class="service-name" data-key="service1Name"></h3>
+                    <p class="service-subtitle" data-key="service1Subtitle"></p>
                     <ul class="service-features">
                         <li data-key="service1Feat1"></li>
                         <li data-key="service1Feat2"></li>
@@ -925,8 +97,8 @@
                     </ul>
                 </div>
                 <div class="service-tier featured">
-                    <h3 class="service-name">Senior Analyst</h3>
-                    <p class="service-subtitle">Professional</p>
+                    <h3 class="service-name" data-key="service2Name"></h3>
+                    <p class="service-subtitle" data-key="service2Subtitle"></p>
                     <ul class="service-features">
                         <li data-key="service2Feat1"></li>
                         <li data-key="service2Feat2"></li>
@@ -936,8 +108,8 @@
                     </ul>
                 </div>
                 <div class="service-tier featured">
-                    <h3 class="service-name">Fractional CFO</h3>
-                    <p class="service-subtitle">Executive</p>
+                    <h3 class="service-name" data-key="service3Name"></h3>
+                    <p class="service-subtitle" data-key="service3Subtitle"></p>
                     <ul class="service-features">
                         <li data-key="service3Feat1"></li>
                         <li data-key="service3Feat2"></li>
@@ -1088,14 +260,14 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon">✉</div>
-                    <a href="mailto:gianmarco@repofin.it" style="color: inherit; text-decoration: none;">gianmarco@repofin.it</a>
+                    <a id="email-link" href="#" style="color: inherit; text-decoration: none;"></a>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
-                    <a href="tel:+393494718597" style="color: inherit; text-decoration: none;">+39 349 47 18 597</a>
+                    <a id="phone-link" href="#" style="color: inherit; text-decoration: none;"></a>
                 </div>
             </div>
-            <a href="https://calendly.com/repofin-meeting" class="cta-button" data-key="ctaButton"></a>
+            <a href="https://calendar.repofin.it/" target="_blank" rel="noopener noreferrer" class="cta-button" data-key="ctaButton"></a>
         </div>
     </section>
 
@@ -1128,7 +300,7 @@
                 navCtaButton: "Book a Meeting",
                 heroTitle: "Clear Data, Confident Decisions.",
                 heroSubtitle: "The financial management solutions your company deserves",
-                heroIntro: "Advanced financial planning & analysis, budgeting, forecasting, performance management, and business intelligence solutions with AI technology for SMEs and scale-ups.",
+                heroIntro: "We turn financial data into growth decisions. With our services in reporting, planning, analysis, budgeting, forecasting, and business intelligence — powered by AI — you get the strategic guidance of an expert CFO at a fraction of the cost.",
                 heroCtaButton: "Discover Our Services",
                 challengesTitle: "Overcome the Challenges of Growth",
                 challengesSubtitle: "Growth brings challenges, especially for finance. Here are the problems we solve:",
@@ -1142,16 +314,23 @@
                 challenge4Desc: "Without professional reporting, it's hard to attract investors and close important deals. We prepare you to scale and make the leap.",
                 servicesTitle: "Our Services",
                 servicesSubtitle: "Enterprise solutions accessible to SMEs and scale-ups.",
+                servicesCustomNote: "Have specific needs? All our packages are flexible and can be customized.",
+                service1Name: "Essential Reporting",
+                service1Subtitle: "Clarity",
+                service2Name: "Senior Analyst",
+                service2Subtitle: "Growth",
+                service3Name: "Fractional CFO",
+                service3Subtitle: "Strategy",
                 service1Feat1: "Creation and maintenance of the reporting system",
                 service1Feat2: "Monthly budget and forecast",
                 service1Feat3: "Automated dashboards",
                 service1Feat4: "Monthly review call",
-                service2Feat1: "Everything in the Essential package",
+                service2Feat1: "Everything in the Clarity package",
                 service2Feat2: "Support for strategic decisions",
                 service2Feat3: "Periodic management reports",
                 service2Feat4: "Board Pack (BoD) preparation",
                 service2Feat5: "Periodic strategic calls",
-                service3Feat1: "Everything in the Professional package",
+                service3Feat1: "Everything in the Growth package",
                 service3Feat2: "Execution of high-level strategic activities",
                 service3Feat3: "Participation in the Board of Directors",
                 service3Feat4: "Fundraising support",
@@ -1176,7 +355,7 @@
                 how2Title: "Custom Solutions & Automation",
                 how2Desc: "We put the strategy into practice with our solutions. We configure systems, integrate data, and automate reporting to give you a clear, real-time view.",
                 how3Title: "Insights and Support",
-                how3Desc: "The numbers come to life. We analyze the data, also through the use of artificial intelligence, and identify opportunities and risks. We regularly support you to discuss insights and back your strategic decisions.",
+                how3Desc: "The numbers come to life. We analyze the data and, also thanks to artificial intelligence, identify opportunities and risks that would otherwise go unnoticed. We regularly support you to discuss insights and back your strategic decisions.",
                 how4Title: "Continuous Growth",
                 how4Desc: "Our support doesn't stop. We work alongside you to monitor progress, adjust the course, and ensure your financial growth is constant and sustainable over time.",
                 clientsTitle: "Who We Serve",
@@ -1187,7 +366,7 @@
                 client2Desc: "If your SME is undergoing a generational change or a transformation, we help you modernize financial management. We turn data into strategic decisions, creating a robust financial system suitable for international expansion and digitalization.",
                 client3Title: "Private Equity Portfolio Companies",
                 client3Desc: "For companies acquired by private equity funds, we offer the necessary support for a fast and effective professionalization process. We help you implement enterprise-level financial reporting and prepare the company for the exit strategy.",
-                profHeader: "Are you a Chartered Accountant and/or Statutory Auditor? <span class='highlight'>We can help you too.</span>",
+                profHeader: "Are you a Chartered Accountant and/or Statutory Auditor? <span class='highlight'>We can support you.</span>",
                 profCol1Title: "Support for Your Clients",
                 profCol1Desc: "Expand the range of services you offer. You can provide your clients with advanced reporting, financial analysis, and business intelligence solutions, increasing your firm's perceived value and creating new business opportunities.",
                 profCol2Title: "Direct Support for Your Firm",
@@ -1214,7 +393,7 @@
                 navCtaButton: "Fissa un appuntamento",
                 heroTitle: "Dati chiari, decisioni sicure.",
                 heroSubtitle: "Le soluzioni di financial management che la tua azienda merita",
-                heroIntro: "Soluzioni avanzate di financial planning & analysis, budgeting, forecasting, performance management, e business intelligence con tecnologia AI per PMI e scale-up.",
+                heroIntro: "Trasformiamo i dati finanziari in decisioni di crescita. Con i nostri servizi di reporting, planning, analysis, budgeting, forecasting, e business intelligence — potenziati da AI — ottieni la guida strategica di un CFO esperto a una frazione del costo.",
                 heroCtaButton: "Scopri i Nostri Servizi",
                 challengesTitle: "Supera le Sfide della Crescita",
                 challengesSubtitle: "La crescita porta sfide, soprattutto per la finanza. Ecco i problemi che risolviamo:",
@@ -1228,16 +407,23 @@
                 challenge4Desc: "Senza un reporting professionale, è difficile attirare investitori e chiudere operazioni importanti. Ti prepariamo a scalare e a fare il grande salto.",
                 servicesTitle: "I Nostri Servizi",
                 servicesSubtitle: "Soluzioni enterprise accessibili a PMI e scale-up.",
+                servicesCustomNote: "Hai esigenze specifiche? Tutti i nostri pacchetti sono flessibili e possono essere personalizzati.",
+                service1Name: "Reportistica Base",
+                service1Subtitle: "Clarity",
+                service2Name: "Senior Analyst",
+                service2Subtitle: "Growth",
+                service3Name: "Fractional CFO",
+                service3Subtitle: "Strategy",
                 service1Feat1: "Creazione e mantenimento del sistema di reporting",
                 service1Feat2: "Budget e forecast mensili",
                 service1Feat3: "Dashboard automatiche",
                 service1Feat4: "Call mensile di review",
-                service2Feat1: "Tutto il pacchetto Essential",
+                service2Feat1: "Tutto il pacchetto Clarity",
                 service2Feat2: "Supporto per le decisioni strategiche",
                 service2Feat3: "Report gestionali periodici",
                 service2Feat4: "Preparazione del Board Pack (CdA)",
                 service2Feat5: "Call periodiche strategiche",
-                service3Feat1: "Tutto il pacchetto Professional",
+                service3Feat1: "Tutto il pacchetto Growth",
                 service3Feat2: "Svolgimento di attività strategiche ad alto livello",
                 service3Feat3: "Partecipazione al CdA",
                 service3Feat4: "Supporto per fundraising",
@@ -1262,7 +448,7 @@
                 how2Title: "Soluzioni su Misura & Automazione",
                 how2Desc: "Mettiamo in pratica la strategia con le nostre soluzioni. Configuriamo i sistemi, integriamo i dati e automatizziamo la reportistica per darti una visione chiara e in tempo reale.",
                 how3Title: "Insight e Affiancamento",
-                how3Desc: "I numeri prendono vita. Analizziamo i dati, anche attraverso l'utilizzo di intelligenza artificiale, e identifichiamo opportunità e rischi. Ti affianchiamo regolarmente per discutere gli insights e supportare le tue decisioni strategiche.",
+                how3Desc: "I numeri prendono vita. Analizziamo i dati e, anche grazie all'intelligenza artificiale, identifichiamo opportunità e rischi che altrimenti passerebbero inosservati. Ti affianchiamo regolarmente per discutere gli insights e supportare le tue decisioni strategiche.",
                 how4Title: "Crescita Continua",
                 how4Desc: "Il nostro supporto non si ferma. Lavoriamo al tuo fianco per monitorare i progressi, aggiustare la rotta e garantire che la tua crescita finanziaria sia costante e sostenibile nel tempo.",
                 clientsTitle: "A Chi Ci Rivolgiamo",
@@ -1273,7 +459,7 @@
                 client2Desc: "Se la tua PMI sta vivendo un passaggio generazionale o una trasformazione, ti aiutiamo a modernizzare la gestione finanziaria. Trasformiamo i dati in decisioni strategiche, creando un sistema finanziario robusto, adatto all'espansione internazionale e alla digitalizzazione.",
                 client3Title: "Aziende in portafoglio di fondi di Private Equity",
                 client3Desc: "Per le società acquisite da fondi di private equity, offriamo il supporto necessario per un processo di professionalizzazione veloce e efficace. Ti aiutiamo a implementare un financial reporting di livello enterprise e a preparare la società per la strategia di exit.",
-                profHeader: "Sei un Dottore Commercialista e/o Revisore Legale? <span class='highlight'>Possiamo aiutare anche te.</span>",
+                profHeader: "Sei un Dottore Commercialista e/o Revisore Legale? <span class='highlight'>Possiamo supportarti.</span>",
                 profCol1Title: "Supporto per i tuoi clienti",
                 profCol1Desc: "Amplia la gamma di servizi che offri. Puoi proporre ai tuoi clienti soluzioni di reporting avanzato, analisi finanziaria e business intelligence, aumentando il valore percepito del tuo studio e creando nuove opportunità di business.",
                 profCol2Title: "Supporto diretto al tuo studio",
@@ -1401,6 +587,21 @@
             // --- Set Initial Language --- //
             const savedLang = localStorage.getItem('language') || 'it';
             setLanguage(savedLang);
+
+            // --- Contact Obfuscation --- //
+            const emailUser = 'gianmarco';
+            const emailDomain = 'repofin.it';
+            const emailLink = document.getElementById('email-link');
+            if (emailLink) {
+                emailLink.href = 'mailto:' + emailUser + '@' + emailDomain;
+                emailLink.textContent = emailUser + '@' + emailDomain;
+            }
+
+            const phoneLink = document.getElementById('phone-link');
+            if (phoneLink) {
+                phoneLink.href = 'tel:+393494718597';
+                phoneLink.textContent = '+39 349 47 18 597';
+            }
 
         });
     </script>
