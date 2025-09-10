@@ -15,6 +15,7 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="#services" data-key="navServices"></a></li>
+                    <li><a href="#how-it-works" data-key="navHowItWorks"></a></li>
                     <li><a href="#clients" data-key="navClients"></a></li>
                     <li><a href="#about-us" data-key="navAboutUs"></a></li>
                     <li><a href="#contact" data-key="navContact"></a></li>
@@ -248,39 +249,6 @@
                     <img src="headshot.png" alt="Gianmarco Felicioni Headshot">
                 </div>
             </div>
-
-            <div class="professional-box" style="margin-top: 60px;">
-                <div class="professional-box-header">
-                    <h3 data-key="detailsTitle"></h3>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="professional-box-content">
-                    <div class="content-grid">
-                        <div class="content-col">
-                            <h4 data-key="detailsSkillsTitle"></h4>
-                            <ul style="margin-top: 15px; padding-left: 0;">
-                                <li data-key="skillItem1"></li>
-                                <li data-key="skillItem2"></li>
-                                <li data-key="skillItem3"></li>
-                                <li data-key="skillItem4"></li>
-                                <li data-key="skillItem5"></li>
-                                <li data-key="skillItem6"></li>
-                            </ul>
-                        </div>
-                        <div class="content-col">
-                            <h4 data-key="detailsExperienceTitle"></h4>
-                            <ul style="margin-top: 15px; padding-left: 0;">
-                                <li data-key="expItem1"></li>
-                                <li data-key="expItem2"></li>
-                                <li data-key="expItem3"></li>
-                                <li data-key="expItem4"></li>
-                                <li data-key="expItem5"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -321,16 +289,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // --- TRANSLATION LOGIC ---
+            // --- TRANSLATION LOGIC --- //
             const translations = {
               en: {
                 navServices: "Services",
-                navClients: "Who We Serve",
+                navHowItWorks: "How It Works",
+                navClients: "Clients",
                 navAboutUs: "About Us",
                 navContact: "Contact",
                 navCtaButton: "Book a Meeting",
                 heroTitle: "Clear Data, Confident Decisions.",
-                heroSubtitle: "The financial management solutions your company deserves.",
+                heroSubtitle: "The financial management solutions your company deserves",
                 heroIntro: "We turn financial data into growth decisions. With our services in reporting, planning, analysis, budgeting, forecasting, and business intelligence — powered by AI — you get the strategic guidance of an expert CFO at a fraction of the cost.",
                 heroCtaButton: "Discover Our Services",
                 challengesTitle: "Overcome the Challenges of Growth",
@@ -340,9 +309,9 @@
                 challenge2Title: "Confusing Data",
                 challenge2Desc: "Without monthly reporting, making informed decisions is impossible. We give you a clear view of your numbers, every month.",
                 challenge3Title: "Lost Margins",
-                challenge3Desc: "Not knowing where you are and where you are going means missing opportunities. We help you identify and recover profit margins.",
+                challenge3Desc: "Not knowing where you are and where you're going means missing opportunities. We help you identify and recover profit margins.",
                 challenge4Title: "Growth Stoppage",
-                challenge4Desc: "Without professional reporting, it is hard to attract investors and close important deals. We prepare you to scale and make the leap.",
+                challenge4Desc: "Without professional reporting, it's hard to attract investors and close important deals. We prepare you to scale and make the leap.",
                 servicesTitle: "Our Services",
                 servicesSubtitle: "Enterprise solutions accessible to SMEs and scale-ups.",
                 servicesCustomNote: "Have specific needs? All our packages are flexible and can be customized.",
@@ -352,22 +321,22 @@
                 service2Subtitle: "Growth",
                 service3Name: "Fractional CFO",
                 service3Subtitle: "Strategy",
-                service1Feat1: "Creation and maintenance of the reporting system.",
-                service1Feat2: "Monthly budget and forecast.",
-                service1Feat3: "Automated dashboards.",
-                service1Feat4: "Monthly review call.",
-                service2Feat1: "Everything in the Clarity package.",
-                service2Feat2: "Support for strategic decisions.",
-                service2Feat3: "Periodic management reports.",
-                service2Feat4: "Board Pack (BoD) preparation.",
-                service2Feat5: "Periodic strategic calls.",
-                service3Feat1: "Everything in the Growth package.",
-                service3Feat2: "Execution of high-level strategic activities.",
-                service3Feat3: "Participation in the Board of Directors.",
-                service3Feat4: "Fundraising support.",
-                service3Feat5: "Coordination of due diligence, investors, and banks.",
+                service1Feat1: "Creation and maintenance of the reporting system",
+                service1Feat2: "Monthly budget and forecast",
+                service1Feat3: "Automated dashboards",
+                service1Feat4: "Monthly review call",
+                service2Feat1: "Everything in the Clarity package",
+                service2Feat2: "Support for strategic decisions",
+                service2Feat3: "Periodic management reports",
+                service2Feat4: "Board Pack (BoD) preparation",
+                service2Feat5: "Periodic strategic calls",
+                service3Feat1: "Everything in the Growth package",
+                service3Feat2: "Execution of high-level strategic activities",
+                service3Feat3: "Participation in the Board of Directors",
+                service3Feat4: "Fundraising support",
+                service3Feat5: "Coordination of due diligence, investors, and banks",
                 areasTitle: "Our Areas of Intervention",
-                areasSubtitle: "Your company needs a steady hand to grow. We provide the necessary financial and strategic support with a targeted and concrete approach. Here is how we help you navigate the future of your business.",
+                areasSubtitle: "Your company needs a steady hand to grow. We provide the necessary financial and strategic support with a targeted and concrete approach. Here's how we help you navigate the future of your business.",
                 area1Title: "Strategic Planning and Business Plans",
                 area1Desc: "Together, we create the map to success. We develop long-term strategic plans and detailed business plans with clear, measurable goals.",
                 area2Title: "Financial Planning and Economic Models",
@@ -379,7 +348,7 @@
                 area5Title: "Quality Financial Reporting",
                 area5Desc: "We create accurate and timely financial reports. Our goal is to give you a clear and actionable view of your data, reducing preparation times and providing crucial information for making informed decisions.",
                 area6Title: "Support for Special Operations (M&A)",
-                area6Desc: "When it is time for a big step, we are by your side. We assist you in mergers and acquisitions, joint ventures, and restructuring, managing financial and strategic due diligence to maximize the value of the operation.",
+                area6Desc: "When it's time for a big step, we are by your side. We assist you in mergers and acquisitions, joint ventures, and restructuring, managing financial and strategic due diligence to maximize the value of the operation.",
                 howTitle: "How It Works",
                 how1Title: "Analysis & Strategy",
                 how1Desc: "Every journey begins with an in-depth analysis to understand your reality, your goals, and your challenges. Together, we define the most suitable financial strategy for your company.",
@@ -388,7 +357,7 @@
                 how3Title: "Insights and Support",
                 how3Desc: "The numbers come to life. We analyze the data and, also thanks to artificial intelligence, identify opportunities and risks that would otherwise go unnoticed. We regularly support you to discuss insights and back your strategic decisions.",
                 how4Title: "Continuous Growth",
-                how4Desc: "Our support does not stop. We work alongside you to monitor progress, adjust the course, and ensure your financial growth is constant and sustainable over time.",
+                how4Desc: "Our support doesn't stop. We work alongside you to monitor progress, adjust the course, and ensure your financial growth is constant and sustainable over time.",
                 clientsTitle: "Who We Serve",
                 clientsSubtitle: "Finance is not one-size-fits-all. Our services are designed to support those facing the most complex challenges of growth.",
                 client1Title: "Tech Scale-ups",
@@ -408,22 +377,8 @@
                 profCol2Li4: "Coordination and management of internal teams on specific projects.",
                 aboutTitle: "About Us",
                 aboutName: "Gianmarco Felicioni",
-                aboutJobTitle: "Professional with over 10 years of experience in Big4 and as a CFO for investment funds and entrepreneurs.",
-                aboutMission: "Our mission is to provide financial clarity and strategic guidance with a pragmatic approach. We believe in concrete, tailor-made solutions that allow our clients to navigate growth with confidence, turning data into effective decisions. To do so, we also leverage an established network of professionals built over time.",
-                detailsTitle: "Detailed <span class='highlight'>Skills</span> & <span class='highlight'>Experience</span>",
-                detailsSkillsTitle: "Key Skills",
-                detailsExperienceTitle: "Relevant Experience",
-                skillItem1: "FP&A, budgeting, forecasting, and periodic reporting.",
-                skillItem2: "M&A, financial due diligence, debt negotiation, capital raising, investor relations.",
-                skillItem3: "Advanced financial modeling, scenario analysis, and business intelligence.",
-                skillItem4: "Python, Google Apps Script, VBA, and automation of financial processes via advanced spreadsheets (Excel, Google Sheets).",
-                skillItem5: "OIC, IFRS, FTA.",
-                skillItem6: "Leading finance teams, coordinating advisors (auditors, accountants, etc.), and preparing for/coordinating Board of Directors meetings.",
-                expItem1: "Direct experience in audit and advisory for systemically important banks and investment firms.",
-                expItem2: "Audit and advisory for listed industrial groups, with a focus on complex accounting issues.",
-                expItem3: "Leadership roles in high-growth digital contexts (tech scale-ups).",
-                expItem4: "Leadership in companies owned by Private Equity (among the world's largest in terms of AUM).",
-                expItem5: "Involvement in M&A and capital restructuring operations both as an advisor and as CFO.",
+                aboutJobTitle: "Professional with over 10 years of experience in Big4 and as a CFO serving investment funds and entrepreneurs.",
+                aboutMission: "Our mission is to provide financial clarity and strategic guidance with a pragmatic approach. We believe in concrete, tailor-made solutions that allow our clients to navigate growth with confidence, turning data into effective decisions.",
                 ctaTitle: "Transform your <span class='highlight'>data</span> into <span class='highlight'>decisions</span>",
                 ctaSubtitle: "Discover how we can bring your financial reporting to the standards of investment funds and the world's largest listed companies.",
                 ctaButton: "Book a Meeting",
@@ -431,13 +386,15 @@
               },
               it: {
                 navServices: "Servizi",
-                navClients: "A Chi Ci Rivolgiamo",
+                navHowItWorks: "Come Funziona",
+                navClients: "Clienti",
                 navAboutUs: "Chi Siamo",
                 navContact: "Contatti",
                 navCtaButton: "Fissa un appuntamento",
                 heroTitle: "Dati chiari, decisioni sicure.",
-                heroSubtitle: "Le soluzioni di financial management che la tua azienda merita.",
+                heroSubtitle: "Le soluzioni di financial management che la tua azienda merita",
                 heroIntro: "Trasformiamo i dati finanziari in decisioni di crescita. Con i nostri servizi di reporting, planning, analysis, budgeting, forecasting, e business intelligence — potenziati da AI — ottieni la guida strategica di un CFO esperto a una frazione del costo.",
+                heroCtaButton: "Scopri i Nostri Servizi",
                 challengesTitle: "Supera le Sfide della Crescita",
                 challengesSubtitle: "La crescita porta sfide, soprattutto per la finanza. Ecco i problemi che risolviamo:",
                 challenge1Title: "Costi Elevati",
@@ -457,20 +414,20 @@
                 service2Subtitle: "Growth",
                 service3Name: "Fractional CFO",
                 service3Subtitle: "Strategy",
-                service1Feat1: "Creazione e mantenimento del sistema di reporting.",
-                service1Feat2: "Budget e forecast mensili.",
-                service1Feat3: "Dashboard automatiche.",
-                service1Feat4: "Call mensile di review.",
-                service2Feat1: "Tutto il pacchetto Clarity.",
-                service2Feat2: "Supporto per le decisioni strategiche.",
-                service2Feat3: "Report gestionali periodici.",
-                service2Feat4: "Preparazione del Board Pack (CdA).",
-                service2Feat5: "Call periodiche strategiche.",
-                service3Feat1: "Tutto il pacchetto Growth.",
-                service3Feat2: "Svolgimento di attività strategiche ad alto livello.",
-                service3Feat3: "Partecipazione al CdA.",
-                service3Feat4: "Supporto per fundraising.",
-                service3Feat5: "Coordinamento di due diligence, investitori e banche.",
+                service1Feat1: "Creazione e mantenimento del sistema di reporting",
+                service1Feat2: "Budget e forecast mensili",
+                service1Feat3: "Dashboard automatiche",
+                service1Feat4: "Call mensile di review",
+                service2Feat1: "Tutto il pacchetto Clarity",
+                service2Feat2: "Supporto per le decisioni strategiche",
+                service2Feat3: "Report gestionali periodici",
+                service2Feat4: "Preparazione del Board Pack (CdA)",
+                service2Feat5: "Call periodiche strategiche",
+                service3Feat1: "Tutto il pacchetto Growth",
+                service3Feat2: "Svolgimento di attività strategiche ad alto livello",
+                service3Feat3: "Partecipazione al CdA",
+                service3Feat4: "Supporto per fundraising",
+                service3Feat5: "Coordinamento di due diligence, investitori e banche",
                 areasTitle: "Le Nostre Aree di Intervento",
                 areasSubtitle: "La tua azienda ha bisogno di una guida sicura per crescere. Noi ti forniamo il supporto finanziario e strategico necessario, con un approccio mirato e concreto. Ecco come ti aiutiamo a navigare il futuro del tuo business.",
                 area1Title: "Pianificazione Strategica e Business Plan",
@@ -514,21 +471,7 @@
                 aboutTitle: "Chi Siamo",
                 aboutName: "Gianmarco Felicioni",
                 aboutJobTitle: "Professionista con oltre 10 anni di esperienza in Big4 e come CFO a servizio di fondi d'investimento ed imprenditori.",
-                aboutMission: "La nostra missione è fornire chiarezza finanziaria e guida strategica con un approccio pragmatico. Crediamo in soluzioni concrete e su misura che permettano ai nostri clienti di navigare la crescita con sicurezza, trasformando i dati in decisioni efficaci. Per farlo, ci avvaliamo anche di una consolidata rete di professionisti costruita nel tempo.",
-                detailsTitle: "Dettaglio <span class='highlight'>Competenze</span> & <span class='highlight'>Esperienze</span>",
-                detailsSkillsTitle: "Competenze Chiave",
-                detailsExperienceTitle: "Esperienze Rilevanti",
-                skillItem1: "FP&A, budgeting, forecasting, e reportistica periodica.",
-                skillItem2: "M&A, due diligence finanziaria, negoziazione di debito, raccolta di capitali, investor relations.",
-                skillItem3: "Financial modelling avanzato, analisi di scenario e business intelligence.",
-                skillItem4: "Python, Google Apps Script, VBA, e automazione di processi finanziari tramite spreadsheet avanzati (Excel, Google Sheets).",
-                skillItem5: "OIC, IFRS, FTA.",
-                skillItem6: "Guida di team finanziari, coordinamento consulenti (revisori, commercialista, etc), preparazione e coordinamento CDA.",
-                expItem1: "Esperienza diretta in ambito audit e advisory su banche di rilevanza sistemica e società d'investimento.",
-                expItem2: "Audit e advisory per gruppi industriali quotati, con focus su tematiche contabili complesse.",
-                expItem3: "Ruolo di leadership in contesti digitali in forte crescita (tech scale-up).",
-                expItem4: "Leadership in società di proprietà di Private Equity (tra i più grandi al mondo in termini di AUM).",
-                expItem5: "Coinvolgimento in operazioni di M&A e ristrutturazione di capitale sia come advisor sia come CFO.",
+                aboutMission: "La nostra missione è fornire chiarezza finanziaria e guida strategica con un approccio pragmatico. Crediamo in soluzioni concrete e su misura che permettano ai nostri clienti di navigare la crescita con sicurezza, trasformando i dati in decisioni efficaci.",
                 ctaTitle: "Trasforma i tuoi <span class='highlight'>dati</span> in <span class='highlight'>decisioni</span>",
                 ctaSubtitle: "Scopri come possiamo portare il livello della tua reportistica finanziaria agli standard di fondi d'investimento e delle società quotate più grandi al mondo.",
                 ctaButton: "Fissa un appuntamento",
@@ -569,10 +512,10 @@
                 setLanguage('en');
             });
             
-            // --- END TRANSLATION LOGIC ---
+            // --- END TRANSLATION LOGIC --- //
 
 
-            // --- Theme Switcher ---
+            // --- Theme Switcher --- //
             const themeSwitch = document.querySelector('#checkbox');
             const currentTheme = localStorage.getItem('theme');
 
@@ -595,7 +538,7 @@
 
             themeSwitch.addEventListener('change', switchTheme, false);
 
-            // --- Scroll-to-Top Button ---
+            // --- Scroll-to-Top Button --- //
             const scrollToTopButton = document.querySelector('.scroll-to-top');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
@@ -610,7 +553,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // --- Scroll-Reveal Animations ---
+            // --- Scroll-Reveal Animations --- //
             const animatedElements = document.querySelectorAll(
                 '.problem-item, .value-card, .service-tier, .process-step, .intervention-item, .client-card'
             );
@@ -633,24 +576,19 @@
                 observer.observe(el);
             });
 
-            // --- Accordion for Professionals Section ---
-            const professionalBoxes = document.querySelectorAll('.professional-box');
-            if (professionalBoxes) {
-                professionalBoxes.forEach(box => {
-                    const header = box.querySelector('.professional-box-header');
-                    if (header) {
-                        header.addEventListener('click', () => {
-                            box.classList.toggle('open');
-                        });
-                    }
+            // --- Accordion for Professionals Section --- //
+            const professionalBox = document.querySelector('.professional-box');
+            if (professionalBox) {
+                professionalBox.addEventListener('click', () => {
+                    professionalBox.classList.toggle('open');
                 });
             }
 
-            // --- Set Initial Language ---
+            // --- Set Initial Language --- //
             const savedLang = localStorage.getItem('language') || 'it';
             setLanguage(savedLang);
 
-            // --- Contact Obfuscation ---
+            // --- Contact Obfuscation --- //
             const emailUser = 'gianmarco.felicioni';
             const emailDomain = 'gmail.com';
             const emailLink = document.getElementById('email-link');
