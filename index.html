@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repofin - Fractional & Interim Financial Management</title>
+    <title>Repofin - Controllo di Gestione, Pianificazione, e Analisi Finanziaria per PMI</title>
+    <meta name="description" content="Servizi di Controllo di Gestione e FP&A per PMI. Repofin aiuta gli imprenditori a trasformare i dati in decisioni strategiche per una crescita consapevole.">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -44,17 +45,22 @@
         <div class="container">
             <h2 class="section-title" data-key="servicesTitle"></h2>
             <p class="section-subtitle" data-key="servicesSubtitle"></p>
-            <p class="customization-note" data-key="servicesCustomNote"></p>
             <div class="services-container">
-                <div class="service-tier featured">
-                    <h3 class="service-name" data-key="serviceFractionalTitle"></h3>
-                    <p class="service-subtitle" data-key="serviceFractionalSubtitle"></p>
-                    <p class="client-desc" data-key="serviceFractionalDesc" style="text-align: left; margin-top: 30px;"></p>
+                <div class="service-tier">
+                    <h3 class="service-name" data-key="service1Title"></h3>
+                    <p class="service-desc" data-key="service1Desc"></p>
                 </div>
-                <div class="service-tier featured">
-                    <h3 class="service-name" data-key="serviceInterimTitle"></h3>
-                    <p class="service-subtitle" data-key="serviceInterimSubtitle"></p>
-                    <p class="client-desc" data-key="serviceInterimDesc" style="text-align: left; margin-top: 30px;"></p>
+                <div class="service-tier">
+                    <h3 class="service-name" data-key="service2Title"></h3>
+                    <p class="service-desc" data-key="service2Desc"></p>
+                </div>
+                <div class="service-tier">
+                    <h3 class="service-name" data-key="service3Title"></h3>
+                    <p class="service-desc" data-key="service3Desc"></p>
+                </div>
+                <div class="service-tier">
+                    <h3 class="service-name" data-key="service4Title"></h3>
+                    <p class="service-desc" data-key="service4Desc"></p>
                 </div>
             </div>
         </div>
@@ -68,40 +74,18 @@
             <div class="clients-grid">
                 <div class="client-card">
                     <h3 class="client-title" data-key="client1Title"></h3>
-                    <p class="client-desc" data-key="client1Desc"></p>
+                    <p class="client-desc" data-key="client1Desc" style="color: #888;"></p>
+                    <p class="client-desc" data-key="client1Msg"></p>
                 </div>
                 <div class="client-card">
                     <h3 class="client-title" data-key="client2Title"></h3>
-                    <p class="client-desc" data-key="client2Desc"></p>
+                    <p class="client-desc" data-key="client2Desc" style="color: #888;"></p>
+                    <p class="client-desc" data-key="client2Msg"></p>
                 </div>
                 <div class="client-card">
                     <h3 class="client-title" data-key="client3Title"></h3>
-                    <p class="client-desc" data-key="client3Desc"></p>
-                </div>
-            </div>
-
-            <div class="professional-box">
-                <div class="professional-box-header">
-                    <h3 data-key="profHeader"></h3>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="professional-box-content">
-                    <div class="content-grid">
-                        <div class="content-col">
-                            <h4 data-key="profCol1Title"></h4>
-                            <p data-key="profCol1Desc"></p>
-                        </div>
-                        <div class="content-col">
-                            <h4 data-key="profCol2Title"></h4>
-                            <p data-key="profCol2Desc"></p>
-                            <ul>
-                                <li data-key="profCol2Li1"></li>
-                                <li data-key="profCol2Li2"></li>
-                                <li data-key="profCol2Li3"></li>
-                                <li data-key="profCol2Li4"></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <p class="client-desc" data-key="client3Desc" style="color: #888;"></p>
+                    <p class="client-desc" data-key="client3Msg"></p>
                 </div>
             </div>
         </div>
@@ -135,6 +119,7 @@
                                 <li data-key="skillItem1"></li>
                                 <li data-key="skillItem2"></li>
                                 <li data-key="skillItem3"></li>
+                                <li data-key="skillItem4"></li>
                                 <li data-key="skillItem5"></li>
                                 <li data-key="skillItem6"></li>
                             </ul>
@@ -201,36 +186,31 @@
                 navAboutUs: "About Us",
                 navContact: "Contact",
                 navCtaButton: "Book a Meeting",
-                heroTitle: "Fractional & Interim Financial Management",
-                heroSubtitle: "Flexible management solutions to guide your company.",
-                heroIntro: "We offer high-level expertise, either on an ongoing (Fractional) or temporary (Interim) basis, to accelerate your growth and manage change.",
-                heroCtaButton: "Learn More",
+                heroTitle: "Business Controlling and FP&A for your business",
+                heroSubtitle: "We turn your data into strategic decisions. Clarity and control for entrepreneurs.",
+                heroIntro: "We provide high-level expertise to give you full control over your company's numbers, plan for the future, and manage growth effectively.",
+                heroCtaButton: "Discover Our Services",
                 servicesTitle: "Our Services",
-                servicesSubtitle: "Enterprise solutions accessible to SMEs and scale-ups.",
-                servicesCustomNote: "Have specific needs? Our solutions are flexible and can be customized.",
-                serviceFractionalTitle: "Fractional Management",
-                serviceFractionalSubtitle: "Your part-time strategic guide.",
-                serviceFractionalDesc: "The expert manager who supports your company on an ongoing basis, but with a flexible commitment. Ideal for having strategic guidance at an executive level (CFO, Controller) without the cost of a full-time executive.",
-                serviceInterimTitle: "Interim Management",
-                serviceInterimSubtitle: "The project-based manager, for specific objectives.",
-                serviceInterimDesc: "The solution for managing transition phases, critical projects (M&A, restructuring), or covering a sudden managerial vacancy. A dedicated professional who delivers rapid and measurable results.",
+                servicesSubtitle: "We help you make informed decisions, based on numbers.",
+                service1Title: "<span class='highlight'>Budget, Forecast, and Planning</span>",
+                service1Desc: "We create solid economic and financial plans to anticipate the future and navigate with confidence, preparing business plans for a clear and sustainable growth path.",
+                service2Title: "<span class='highlight'>Reporting & Data Analysis</span>",
+                service2Desc: "Clear and periodic reports to monitor performance. We transform complex data into intuitive information to show you where you're earning (or losing).",
+                service3Title: "<span class='highlight'>Support for Banks & Investors</span>",
+                service3Desc: "We help you communicate with banks and investors by speaking their language. We prepare business plans, banking-specific reports, and all professional documentation (info memos, due diligence) to best present your company and facilitate access to credit or new capital.",
+                service4Title: "<span class='highlight'>Process Optimization</span>",
+                service4Desc: "We design and implement streamlined financial processes, from selecting an ERP system to creating advanced Excel/Google Sheets models accessible even from your phone at any time.",
                 clientsTitle: "Who We Serve",
-                clientsSubtitle: "Finance is not one-size-fits-all. Our services are designed to support those facing the most complex challenges of growth.",
-                client1Title: "Tech Scale-ups",
-                client1Desc: "If you are a scale-up, growth is your only goal. We help you structure the financial function from scratch, creating a scalable and fast team and systems. The result is professional reporting, ready to attract new investors.",
+                clientsSubtitle: "We offer tailored solutions because every business has a unique story.",
+                client1Title: "Growing SMEs",
+                client1Desc: "Growth is chaotic, you lack data for investors, and manual processes are not scalable.",
+                client1Msg: "Let's build a scalable, investor-ready finance function together. We implement from scratch the systems and professional reporting you need to attract capital and manage explosive growth without losing control.",
                 client2Title: "SMEs in Transition",
-                client2Desc: "If your SME is undergoing a generational change or a transformation, we help you modernize financial management. We turn data into strategic decisions, creating a robust financial system suitable for international expansion and digitalization.",
-                client3Title: "Private Equity Portfolio Companies",
-                client3Desc: "For companies acquired by private equity funds, we offer the necessary support for a fast and effective professionalization process. We help you implement enterprise-level financial reporting and prepare the company for the exit strategy.",
-                profHeader: "Are you a Chartered Accountant and/or Statutory Auditor? <span class='highlight'>We can support you.</span>",
-                profCol1Title: "Support for Your Clients",
-                profCol1Desc: "Expand the range of services you offer. You can provide your clients with advanced reporting, financial analysis, and business intelligence solutions, increasing your firm's perceived value and creating new business opportunities.",
-                profCol2Title: "Direct Support for Your Firm",
-                profCol2Desc: "We assist you in your activities to manage peak workloads or complex projects. Our support includes:",
-                profCol2Li1: "Drafting of technical reports (e.g., for mergers).",
-                profCol2Li2: "Business valuations.",
-                profCol2Li3: "Assistance in statutory audit activities.",
-                profCol2Li4: "Coordination and management of internal teams on specific projects.",
+                client2Desc: "Outdated systems, difficulties in generational change, and financial data seen as an obligation, not a strategic tool.",
+                client2Msg: "We modernize your company's financial management to get it ready for future challenges. We turn data into strategic decisions, supporting digitalization and international expansion with a robust, modern financial system.",
+                client3Title: "Accountants & Professional Firms",
+                client3Desc: "Your clients ask for strategic advice, but you're swamped with tax deadlines and compliance. You feel you could offer more, but lack the time or specific tools.",
+                client3Msg: "Partner with us to enrich your service offering. Provide your clients with advanced controlling and FP&A services without needing an in-house structure. Become their all-around strategic advisor, increasing loyalty and the perceived value of your firm.",
                 aboutTitle: "About Us",
                 aboutName: "Gianmarco Felicioni",
                 aboutJobTitle: "Professional with over 10 years of experience in Big4 and as a CFO for investment funds and entrepreneurs.",
@@ -240,7 +220,8 @@
                 detailsExperienceTitle: "Relevant Experience",
                 skillItem1: "FP&A, controlling, budgeting, forecasting, and periodic reporting.",
                 skillItem2: "M&A, financial due diligence, debt negotiation, capital raising, investor relations.",
-                skillItem3: "Advanced financial modeling, scenario analysis, and business intelligence, including through the use of Python, Google Apps Script, VBA, and automation of financial processes via advanced spreadsheets (Excel, Google Sheets).",
+                skillItem3: "Advanced financial modeling, scenario analysis, and business intelligence.",
+                skillItem4: "Automation of financial processes via advanced spreadsheets (Excel, Google Sheets), Python, Google Apps Script, VBA.",
                 skillItem5: "Deep knowledge of Italian national accounting standards (OIC) and IFRS.",
                 skillItem6: "Leading finance teams, coordinating advisors (auditors, accountants, etc.), and preparing for/coordinating Board of Directors meetings.",
                 expItem1: "Direct experience in audit and advisory for systemically important banks and investment firms.",
@@ -249,8 +230,8 @@
                 expItem4: "Leadership in companies owned by Private Equity (among the world's largest in terms of AUM).",
                 expItem5: "Involvement in M&A and capital restructuring operations both as an advisor and as CFO.",
                 ctaTitle: "We are at your disposal.",
-                ctaSubtitle: "Contact us for an introductory call and discover how our Fractional and Interim Management solutions can concretely support your goals.",
-                ctaButton: "Book a Meeting",
+                ctaSubtitle: "Contact us for an introductory call and find out how we can help you understand your numbers and grow your business.",
+                ctaButton: "Book a Free Meeting",
                 footerCopyright: "© 2025 Repofin. All rights reserved."
               },
               it: {
@@ -259,36 +240,31 @@
                 navAboutUs: "Chi Siamo",
                 navContact: "Contatti",
                 navCtaButton: "Fissa un appuntamento",
-                heroTitle: "Fractional & Interim Financial Management",
-                heroSubtitle: "Soluzioni manageriali flessibili per guidare la tua azienda.",
-                heroIntro: "Offriamo competenze di alto livello, in modo continuativo (Fractional) o temporaneo (Interim), per accelerare la tua crescita e gestire il cambiamento.",
-                heroCtaButton: "Scopri di più",
+                heroTitle: "Controllo di Gestione, Pianificazione, e Analisi Finanziaria per la tua impresa",
+                heroSubtitle: "Trasformiamo i tuoi dati in decisioni strategiche. Chiarezza e controllo per l'imprenditore.",
+                heroIntro: "Offriamo competenze di alto livello per darti il pieno controllo dei numeri della tua azienda, pianificare il futuro e gestire la crescita in modo efficace.",
+                heroCtaButton: "Scopri i Nostri Servizi",
                 servicesTitle: "I Nostri Servizi",
-                servicesSubtitle: "Soluzioni enterprise accessibili a PMI e scale-up.",
-                servicesCustomNote: "Hai esigenze specifiche? Tutti i nostri pacchetti sono flessibili e possono essere personalizzati.",
-                serviceFractionalTitle: "Fractional Management",
-                serviceFractionalSubtitle: "La tua guida strategica part-time.",
-                serviceFractionalDesc: "Il manager esperto che affianca la tua azienda in modo continuativo, ma con un impegno flessibile. Ideale per avere una guida strategica a livello direzionale (CFO, Controller) senza sostenere il costo di un dirigente a tempo pieno.",
-                serviceInterimTitle: "Interim Management",
-                serviceInterimSubtitle: "Il manager a progetto, per obiettivi specifici.",
-                serviceInterimDesc: "La soluzione per gestire fasi di transizione, progetti critici (M&A, ristrutturazioni) o per coprire un vuoto manageriale improvviso. Un professionista dedicato che porta risultati rapidi e misurabili.",
+                servicesSubtitle: "Ti aiutiamo a prendere decisioni consapevoli, basate sui numeri.",
+                service1Title: "<span class='highlight'>Budget, Forecast, e Pianificazione</span>",
+                service1Desc: "Creiamo piani economici e finanziari solidi per anticipare il futuro e non navigare a vista, preparando business plan per un percorso di crescita chiaro e sostenibile.",
+                service2Title: "<span class='highlight'>Reportistica e Analisi dei Dati</span>",
+                service2Desc: "Report chiari e periodici per monitorare le performance. Trasformiamo dati complessi in informazioni intuitive per farti capire dove stai guadagnando (o perdendo).",
+                service3Title: "<span class='highlight'>Supporto per Banche e Investitori</span>",
+                service3Desc: "Ti aiutiamo a dialogare con banche e investitori parlando la loro lingua. Prepariamo business plan, reportistica per il ceto bancario e tutta la documentazione professionale (info memo, due diligence) per presentare la tua azienda al meglio e facilitare l'accesso al credito o a nuovi capitali.",
+                service4Title: "<span class='highlight'>Ottimizzazione dei Processi</span>",
+                service4Desc: "Disegniamo e implementiamo processi finanziari snelli, dalla scelta di un gestionale alla creazione di modelli Excel/Google Sheets evoluti e accessibili anche da telefono in qualsiasi momento.",
                 clientsTitle: "A Chi Ci Rivolgiamo",
-                clientsSubtitle: "La finanza non è uguale per tutti. I nostri servizi sono pensati per supportare chi affronta le sfide più complesse della crescita.",
-                client1Title: "Scale-up tecnologiche",
-                client1Desc: "Se sei una scale-up, la crescita è il твое unico obiettivo. Ti aiutiamo a strutturare la funzione finanziaria da zero, creando un team e sistemi scalabili e veloci. Il risultato è una reportistica professionale, pronta per attrarre nuovi investitori.",
-                client2Title: "PMI in transizione",
-                client2Desc: "Se la tua PMI sta vivendo un passaggio generazionale o una trasformazione, ti aiutiamo a modernizzare la gestione finanziaria. Trasformiamo i dati in decisioni strategiche, creando un sistema finanziario robusto, adatto all'espansione internazionale e alla digitalizzazione.",
-                client3Title: "Aziende in portafoglio di fondi di Private Equity",
-                client3Desc: "Per le società acquisite da fondi di private equity, offriamo il supporto necessario per un processo di professionalizzazione veloce e efficace. Ti aiutiamo a implementare un financial reporting di livello enterprise e a preparare la società per la strategia di exit.",
-                profHeader: "Sei un Dottore Commercialista e/o Revisore Legale? <span class='highlight'>Possiamo supportarti.</span>",
-                profCol1Title: "Supporto per i tuoi clienti",
-                profCol1Desc: "Amplia la gamma di servizi che offri. Puoi proporre ai tuoi clienti soluzioni di reporting avanzato, analisi finanziaria e business intelligence, aumentando il valore percepito del tuo studio e creando nuove opportunità di business.",
-                profCol2Title: "Supporto diretto al tuo studio",
-                profCol2Desc: "Ti affianchiamo nelle tue attività per gestire picchi di lavoro o progetti complessi. Il nostro supporto include:",
-                profCol2Li1: "Redazione di relazioni tecniche (es. art. 2501-bis c.c. per fusioni).",
-                profCol2Li2: "Valutazioni aziendali.",
-                profCol2Li3: "Affiancamento nelle attività di revisione legale.",
-                profCol2Li4: "Coordinamento e gestione di team interni su progetti specifici.",
+                clientsSubtitle: "Offriamo soluzioni su misura, perché ogni impresa ha una storia unica.",
+                client1Title: "PMI in Crescita",
+                client1Desc: "La crescita è caotica, ti mancano dati per gli investitori e i processi manuali non sono scalabili.",
+                client1Msg: "Strutturiamo insieme una funzione finanziaria investor-ready e scalabile. Implementiamo da zero i sistemi e la reportistica professionale che ti servono per attrarre capitali e gestire una crescita esplosiva, senza perdere il controllo.",
+                client2Title: "PMI in Transizione",
+                client2Desc: "Sistemi datati, difficoltà nel passaggio generazionale, dati finanziari visti come un obbligo e non come uno strumento strategico.",
+                client2Msg: "Modernizziamo la gestione finanziaria della tua azienda per renderla pronta alle sfide del futuro. Trasformiamo i dati in decisioni strategiche, supportando la digitalizzazione e l'espansione internazionale con un sistema finanziario robusto e moderno.",
+                client3Title: "Commercialisti e Studi Professionali",
+                client3Desc: "I tuoi clienti ti chiedono consulenza strategica, ma sei sommerso dalle scadenze. Senti di poter offrire di più, ma ti mancano il tempo o gli strumenti specifici.",
+                client3Msg: "Collabora con noi per arricchire la tua offerta. Fornisci ai tuoi clienti servizi di controlling e FP&A evoluti, senza doverti strutturare internamente. Diventa il loro punto di riferimento strategico, aumentando la fidelizzazione e il valore del tuo studio.",
                 aboutTitle: "Chi Siamo",
                 aboutName: "Gianmarco Felicioni",
                 aboutJobTitle: "Professionista con oltre 10 anni di esperienza in Big4 e come CFO a servizio di fondi d'investimento ed imprenditori.",
@@ -298,8 +274,9 @@
                 detailsExperienceTitle: "Esperienze Rilevanti",
                 skillItem1: "FP&A, controlling, budgeting, forecasting, e reportistica periodica.",
                 skillItem2: "M&A, due diligence finanziaria, negoziazione di debito, raccolta di capitali, investor relations.",
-                skillItem3: "Financial modelling avanzato, analisi di scenario e business intelligence, anche attraverso l'utilizzo di Python, Google Apps Script, VBA, e automazione di processi finanziari tramite spreadsheet avanzati (Excel, Google Sheets).",
-                skillItem5: "Profonda conoscenza dei principi contabili nazionali italiani (OIC) ed IFRS",
+                skillItem3: "Financial modelling avanzato, analisi di scenario e business intelligence.",
+                skillItem4: "Automazione di processi finanziari tramite spreadsheet avanzati (Excel, Google Sheets), Python, Google Apps Script, VBA.",
+                skillItem5: "Profonda conoscenza dei principi contabili nazionali italiani (OIC) ed IFRS.",
                 skillItem6: "Guida di team finanziari, coordinamento consulenti (revisori, commercialista, etc), preparazione e coordinamento CDA.",
                 expItem1: "Esperienza diretta in ambito audit e advisory su banche di rilevanza sistemica e società d'investimento.",
                 expItem2: "Audit e advisory per gruppi industriali quotati, con focus su tematiche contabili complesse.",
@@ -307,8 +284,8 @@
                 expItem4: "Leadership in società di proprietà di Private Equity (tra i più grandi al mondo in termini di AUM).",
                 expItem5: "Coinvolgimento in operazioni di M&A e ristrutturazione di capitale sia come advisor sia come CFO.",
                 ctaTitle: "Siamo a tua disposizione.",
-                ctaSubtitle: "Contattaci per una call conoscitiva e scopri come le nostre soluzioni di Fractional e Interim Management possono supportare concretamente i tuoi obiettivi.",
-                ctaButton: "Fissa un appuntamento",
+                ctaSubtitle: "Contattaci per una call conoscitiva e scopri come possiamo aiutarti a capire i tuoi numeri e a far crescere il tuo business.",
+                ctaButton: "Fissa un incontro gratuito",
                 footerCopyright: "© 2025 Repofin. Tutti i diritti riservati."
               }
             };
